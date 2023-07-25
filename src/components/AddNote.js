@@ -13,6 +13,10 @@ function AddNote() {
   const handleOnclick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
+    setNote({
+      title: "",
+      description: "",
+    });
   };
   const onChangeClick = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
@@ -34,6 +38,7 @@ function AddNote() {
               aria-describedby="emailHelp"
               placeholder="Enter title "
               onChange={onChangeClick}
+              value={note.title}
             />
           </div>
           <div className="form-group">
@@ -45,6 +50,7 @@ function AddNote() {
               name="description"
               placeholder="Enter description"
               onChange={onChangeClick}
+              value={note.description}
             />
           </div>
           <div className="form-check">
